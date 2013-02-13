@@ -1,0 +1,273 @@
+'★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+
+
+'これより下にテストを記述する
+'Testは[Test]から始まるSubで記述する
+Public Sub Test1をFizzBuzz変換すると1になること()
+    AssertEqual "1", ThisWorkbook.ConvertToFizzBuzz(1)
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Sub Test2をFizzBuzz変換すると2になること()
+    AssertEqual "2", ThisWorkbook.ConvertToFizzBuzz(2)
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Sub Test3をFizzBuzz変換するとFizzになること()
+    AssertEqual "Fizz", ThisWorkbook.ConvertToFizzBuzz(3)
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Sub Test5をFizzBuzz変換するとBuzzになること()
+    AssertEqual "Buzz", ThisWorkbook.ConvertToFizzBuzz(5)
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Sub Test15をFizzBuzz変換するとFizzBuzzになること()
+    AssertEqual "FizzBuzz", ThisWorkbook.ConvertToFizzBuzz(15)
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Sub Test1から5までをFizzBuzz変換して結果を確認する()
+    
+    Dim fizzBuzzCollection As New Collection
+    fizzBuzzCollection.Add "1", "1"
+    fizzBuzzCollection.Add "2", "2"
+    fizzBuzzCollection.Add "Fizz", "3"
+    fizzBuzzCollection.Add "4", "4"
+    fizzBuzzCollection.Add "Buzz", "5"
+    
+    Dim result As Collection
+    Set result = ThisWorkbook.ConvertFizzBuzzForRange(1, 5)
+    
+    Dim i As Long
+    For i = 1 To 5
+        AssertEqual fizzBuzzCollection(CStr(i)), result(CStr(i))
+    Next
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Sub Test1から30までシートに出力されることを確認()
+    ThisWorkbook.WriteFizzBuzzToSheetWith ThisWorkbook.Worksheets(1).Range("A1"), 1, 30
+    AssertCellRangeToCSV ThisWorkbook.Worksheets(1).Range("A1:B30"), "期待結果\1から30まで.csv"
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

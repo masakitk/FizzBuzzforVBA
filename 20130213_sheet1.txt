@@ -1,0 +1,72 @@
+Public Function ConvertToFizzBuzz(number As Long) As String
+    If number Mod 15 = 0 Then
+        ConvertToFizzBuzz = "FizzBuzz"
+        Exit Function
+    End If
+    
+    If number Mod 3 = 0 Then
+        ConvertToFizzBuzz = "Fizz"
+        Exit Function
+    End If
+    
+    If number Mod 5 = 0 Then
+        ConvertToFizzBuzz = "Buzz"
+        Exit Function
+    End If
+    
+    
+    ConvertToFizzBuzz = CStr(number)
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Function ConvertFizzBuzzForRange(min As Long, max As Long) As Collection
+    Set ConvertFizzBuzzForRange = New Collection
+    Dim i As Long
+    For i = min To max
+        ConvertFizzBuzzForRange.Add ConvertToFizzBuzz(i), CStr(i)
+    Next
+    
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Sub WriteFizzBuzzToSheetWith(startWith As Range, min As Long, max As Long)
+    Dim fizzBuzzCollection As Collection
+    Set fizzBuzzCollection = ConvertFizzBuzzForRange(min, max)
+    
+    Dim i As Long
+    For i = min To max
+        startWith.Offset(i - 1, 0).value = CStr(i)
+        startWith.Offset(i - 1, 1).value = fizzBuzzCollection(CStr(i))
+    Next
+    
+End Sub
