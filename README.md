@@ -8,11 +8,11 @@ FizzBuzzforExcelVBA
 
   * https://github.com/masakitk/FizzBuzzforVBA/
 
-初期状態のファイル：initial_テストVBA.xls
- → サンプルのテストが1つあります
-実装後のファイル：テストVBA.xls
+初期状態のファイル：initial_テストVBA.xls  
+ → サンプルのテストが1つあります  
+実装後のファイル：テストVBA.xls  
 
-となっています。
+となっています。  
 テスト用の期待結果CSVもあります。
    
 ## テストの作成
@@ -25,10 +25,11 @@ TestClassの指定位置より下に、テストメソッドを追加するこ�
 ###AssertCsvValues
 2つのCSVファイルの内容が同じかどうか
 
-"" テストの実行
-TestRunnerクラスのRunTestsメソッドを実行します。
- コンソールにテスト結果が表示されます。
- test.logファイルにも出力されます。
+## テストの実行
+TestRunnerクラスのRunTestsメソッドを実行します。  
+→コンソールにテスト結果が表示されます。  
+→test.logファイルにも出力されます。  
+
 
 ※普通のExcelでテストツールを使いたい時は、ちょっと面倒ですが5個のクラスモジュールと2個の標準モジュールをインポートすれば使えます
 
